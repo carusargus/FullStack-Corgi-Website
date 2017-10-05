@@ -1,0 +1,37 @@
+<!--we use to be in the same directory as partials but now it is nested inside of the campgrounds directory the ../ takes us from inside the campground up one folder -->
+<%include ../partials/header %> 
+
+
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+             <h1>Welcome To our Corgi Campsites  </h1>
+            <p>Select from one of our handpicked Corgi sites you are sure to love</p>
+            <p>
+                <a class="btn btn-primary btn-large" href="/campgrounds/new">Add a New Corgi Campground</a>
+            </p>
+        </div>
+       
+    </header>
+    
+    <div class="row text-center" style="display:flex; flex-wrap:wrap; ">
+        <% campgrounds.forEach(function(campground){ %>
+            <div class="col-md-3 sol-sm-6">
+                <div class="thumbnail">
+                     <img src= " <%=campground.image %>">
+                     <div class="caption">
+                          <h4> <%=campground.name %> </h4>
+                     </div>
+                     <p>
+                         <a href="/campgrounds/<%=campground._id %> " class="btn btn-md btn-primary">More Infor</a>
+                     </p>
+                </div>
+            </div>
+        
+        <% }); %> 
+     </div>
+</div>
+
+
+<%include ../partials/footer %>
